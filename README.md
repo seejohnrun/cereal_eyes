@@ -1,7 +1,5 @@
 # CerealEyes
 
-_NOTE: Incomplete Collection Support_
-
 CerealEyes is a concept of modeling data that will be serialized in a consistent manner.  It is based on [google-gson](http://code.google.com/p/google-gson/).
 
 Basically, you define models that look like:
@@ -40,6 +38,8 @@ end
 doc = SomeDocument.new
 doc.some_document = SomeDocument.new
 doc.serialize # { :name => 'hi', :some_document => { :name => 'hi' } }
+```
+
 ---
 
 ## Basic Options

@@ -60,7 +60,11 @@ module CerealEyes
           value = data[name]
           value ||= data[name.to_s] unless String === name
           if value && options[:type] # nesting
-            value = options[:type].deserialize(value)
+            if value.is_a?(Array)
+              value = value.map { |v| puts v.inspect; options[:type].deserialize(v) }
+            else
+              value = options[:type].deserialize(value)
+            end
           end
           obj.instance_variable_set(:"@#{options[:field]}", value || options[:default])
         end
@@ -78,6 +82,15 @@ module CerealEyes
         self.class.serialized_attributes.each do |options|
           next unless options[:serialize]
           value = instance_variable_get(:"@#{options[:field]}") || options[:default]
+          if value && options[:type]
+            if value.kind_of?(CerealEyes::Document)
+              value = value.serialize
+            elsif value.is_a?(Array)
+              value = value.map(&:serialize)
+            else
+              raise ArgumentError.new("Don't know how to serialize type: #{options[:type]}")
+            end
+          end
           value = value.serialize if value.kind_of?(CerealEyes::Document)
           data[options[:name]] = value if value || !options[:squash_nil]
         end
