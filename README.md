@@ -1,5 +1,7 @@
 # CerealEyes
 
+_NOTE: Incomplete Collection Support_
+
 CerealEyes is a concept of modeling data that will be serialized in a consistent manner.  It is based on [google-gson](http://code.google.com/p/google-gson/).
 
 Basically, you define models that look like:
@@ -27,8 +29,17 @@ doc.name # "hello"
 doc.age # nil
 ```
 
-Nesting is handled seamlessly (see :type below), and it's perdy cool.
+Nesting is handled seamlessly (see :type below), and it's perdy cool:
 
+``` ruby
+class SomeDocument
+  attributes :some_document, :type => self
+  attributes :name, :default => 'hi'
+end
+
+doc = SomeDocument.new
+doc.some_document = SomeDocument.new
+doc.serialize # { :name => 'hi', :some_document => { :name => 'hi' } }
 ---
 
 ## Basic Options
@@ -41,7 +52,7 @@ Whether or not a particular attribute should come back in deserializations (defa
 
 Whether or not a particular attribute should go out in serializations (default true)
 
-### `:default`
+### `:default [Object]`
 
 The default for this field if not supplied (applied to serialization and deserialization)
 
@@ -52,6 +63,10 @@ Whether or not to keep nils around for values that are empty (default true)
 ### `:type [Class]`
 
 What type of class should be used to deserialize a certain attribute.   Must be a kind_of CerealEyes::Document
+
+### `:name [String]`
+
+An alias to give the attribute in serialization (and consequently deserialization)
 
 ---
 
