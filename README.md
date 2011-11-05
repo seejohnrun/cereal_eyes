@@ -1,6 +1,6 @@
 # CerealEyes
 
-CerealEyes is a concept of modeling data that will be serialized in a consistent manner.  It is based on [google-gson](http://code.google.com/p/google-gson/).
+CerealEyes is a proof-of-concept serialization DSL similar to (and based on) [google-gson](http://code.google.com/p/google-gson/).
 
 Basically, you define models that look like:
 
