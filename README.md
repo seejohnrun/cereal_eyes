@@ -4,7 +4,7 @@ CerealEyes is a concept of modeling data that will be serialized in a consistent
 
 Basically, you define models that look like:
 
-```
+``` ruby
 class SampleDocument
   attributes :name, :default => 'no name'
   attributes :age, :deserialize => false
@@ -13,7 +13,7 @@ end
 
 And that allows you to do:
 
-```
+``` ruby
 doc = SampleDocument.new
 doc.age = 24
 doc.serialize # { :name => 'no name', :age => 24 }
