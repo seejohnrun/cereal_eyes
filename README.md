@@ -1,5 +1,7 @@
 # CerealEyes
 
+[![Build Status](https://secure.travis-ci.org/seejohnrun/cereal_eyes.png)](http://travis-ci.org/seejohnrun/cereal_eyes)
+
 CerealEyes is a proof-of-concept serialization DSL similar to (and based on) [google-gson](http://code.google.com/p/google-gson/).
 
 Basically, you define models that look like:

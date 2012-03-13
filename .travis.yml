@@ -1,5 +1,7 @@
-rvm: 1.9.2
-script: "rspec"
+script: "rspec spec"
 notifications:
   email:
     - john.crepezzi@gmail.com
+rvm:
+  - 1.9.2
+  - 1.9.3
