@@ -21,7 +21,7 @@ doc.age = 24
 doc.serialize # { :name => 'no name', :age => 24 }
 ```
 
-and 
+and
 
 ``` ruby
 doc = SampleDocument.deserialize :name => 'hello', :age => 24
@@ -46,29 +46,12 @@ doc.serialize # { :name => 'hi', :some_document => { :name => 'hi' } }
 
 ## Basic Options
 
-### `:deserialize [Boolean]`
-
-Whether or not a particular attribute should come back in deserializations (default true)
-
-### `:serialize [Boolean]`
-
-Whether or not a particular attribute should go out in serializations (default true)
-
-### `:default [Object]`
-
-The default for this field if not supplied (applied to serialization and deserialization)
-
-### `:squash_nil [Boolean]`
-
-Whether or not to keep nils around for values that are empty (default true)
-
-### `:type [Class]`
-
-What type of class should be used to deserialize a certain attribute.   Must be a kind_of CerealEyes::Document
-
-### `:name [String]`
-
-An alias to give the attribute in serialization (and consequently deserialization)
+* `:deserialize [Boolean]` - Whether or not a particular attribute should come back in deserializations (default true)
+* `:serialize [Boolean]` - Whether or not a particular attribute should go out in serializations (default true)
+* `:default [Object]` - The default for this field if not supplied (applied to serialization and deserialization)
+* `:squash_nil [Boolean]` - Whether or not to keep nils around for values that are empty (default true)
+* `:type [Class]` - What type of class should be used to deserialize a certain attribute.  Must be a kind_of CerealEyes::Document
+* `:name [String]` - An alias to give the attribute in serialization (and consequently deserialization)
 
 ---
 
